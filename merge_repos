@@ -1,7 +1,6 @@
 mkdir UnifiedRepo
 cd UnifiedRepo
 git init
-chmod +x merge_repos
 
 
 git remote add Week-8-General-Practice <https://github.com/M1chelle-rt/Week-8-General-Practice>
@@ -45,5 +44,3 @@ git merge Week-3-Journal-Project-1 --allow-unrelated-histories
 git merge CarMax-App-v2 --allow-unrelated-histories
 
 git push origin master
-
-./merge_repos
