@@ -1,0 +1,49 @@
+mkdir UnifiedRepo
+cd UnifiedRepo
+git init
+chmod +x merge_repos
+
+
+git remote add Week-8-General-Practice <https://github.com/M1chelle-rt/Week-8-General-Practice>
+git remote add Week-6-General-Practice <https://github.com/M1chelle-rt/Week-6-General-Practice>
+git remote add Week-4-Journal <https://github.com/M1chelle-rt/Week-4-Journal>
+git remote add Week-3-Journal-Project-1 <https://github.com/M1chelle-rt/Week-3-Journal-Project-1>
+git remote add CarMax-App-v2 <https://github.com/M1chelle-rt/CarMax-App-v2>
+
+git fetch --all
+
+git checkout --orphan Week-8-General-Practice
+git reset --hard
+git read-tree --prefix=subdir1/ -u Week-8-General-Practice
+git commit -m
+
+git checkout master --orphan Week-6-General-Practice
+git reset --hard
+git read-tree --prefix=subdir1/ -u Week-6-General-Practice
+git commit -m
+
+git checkout master --orphan Week-4-Journal
+git reset --hard
+git read-tree --prefix=subdir1/ -u Week-4-Journal
+git commit -m
+
+git checkout master --orphan Week-3-Journal-Project-1
+git reset --hard
+git read-tree --prefix=subdir1/ -u Week-3-Journal-Project-1
+git commit -m
+
+git checkout master --orphan CarMax-App-v2
+git reset --hard
+git read-tree --prefix=subdir1/ -u CarMax-App-v2
+git commit -m
+
+git checkout master
+git merge Week-8-General-Practice --allow-unrelated-histories
+git merge Week-6-General-Practice --allow-unrelated-histories
+git merge Week-4-Journal --allow-unrelated-histories
+git merge Week-3-Journal-Project-1 --allow-unrelated-histories
+git merge CarMax-App-v2 --allow-unrelated-histories
+
+git push origin master
+
+./merge_repos
